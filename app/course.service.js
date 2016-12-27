@@ -9,28 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var app_component_1 = require("./app.component");
-var courses_component_1 = require("./courses.component");
-var authors_component_1 = require("./authors.component");
-var auto_grow_directive_1 = require("./auto-grow.directive");
-var AppModule = (function () {
-    function AppModule() {
+var CourseService = (function () {
+    function CourseService() {
     }
-    return AppModule;
+    CourseService.prototype.getCourses = function () {
+        return ["Course1", "Course2", "Course3"];
+    };
+    return CourseService;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [
-            app_component_1.AppComponent,
-            courses_component_1.CoursesComponent,
-            authors_component_1.AuthorsComponent,
-            auto_grow_directive_1.AutoGrowDirective
-        ],
-        bootstrap: [app_component_1.AppComponent]
-    }),
+CourseService = __decorate([
+    core_1.Injectable(),
     __metadata("design:paramtypes", [])
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], CourseService);
+exports.CourseService = CourseService;
+//# sourceMappingURL=course.service.js.map

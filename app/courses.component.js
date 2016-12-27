@@ -9,17 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var course_service_1 = require("./course.service");
+var CoursesComponent = (function () {
+    function CoursesComponent(courseService) {
+        this.title = "This is the title for courses Component";
+        this.courses = courseService.getCourses();
     }
-    return AppComponent;
+    CoursesComponent.prototype.ngOnInit = function () { };
+    return CoursesComponent;
 }());
-AppComponent = __decorate([
+CoursesComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "<h1>Gabi App</h1>\n  <courses></courses>\n  <authors></authors>",
+        selector: 'courses',
+        template: "<h2>Courses</h2>\n    {{title}}\n    <input type=\"text\" autogrow>\n    <ul>\n    <li *ngFor=\"let course of courses\">\n    {{course}}\n    </li>\n    </ul>\n    ",
+        providers: [course_service_1.CourseService]
     }),
-    __metadata("design:paramtypes", [])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+    __metadata("design:paramtypes", [course_service_1.CourseService])
+], CoursesComponent);
+exports.CoursesComponent = CoursesComponent;
+//# sourceMappingURL=courses.component.js.map

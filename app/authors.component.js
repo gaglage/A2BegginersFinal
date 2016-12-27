@@ -9,17 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var author_service_1 = require("./author.service");
+var AuthorsComponent = (function () {
+    function AuthorsComponent(authorsService) {
+        this.title = "This is title for Authors Component";
+        this.authors = authorsService.getAuthors();
     }
-    return AppComponent;
+    AuthorsComponent.prototype.ngOnInit = function () { };
+    return AuthorsComponent;
 }());
-AppComponent = __decorate([
+AuthorsComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "<h1>Gabi App</h1>\n  <courses></courses>\n  <authors></authors>",
+        selector: 'authors',
+        template: "\n    <h2>Authors</h2>\n    {{title}}\n    <ul>\n        <li *ngFor=\"let author of authors \">\n        {{author}}\n        </li>\n    </ul>\n    ",
+        providers: [author_service_1.AuthorService]
     }),
-    __metadata("design:paramtypes", [])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+    __metadata("design:paramtypes", [author_service_1.AuthorService])
+], AuthorsComponent);
+exports.AuthorsComponent = AuthorsComponent;
+//# sourceMappingURL=authors.component.js.map
