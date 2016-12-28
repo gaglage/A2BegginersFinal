@@ -22,7 +22,7 @@ import { Component } from '@angular/core';
 
   
   <h2>Práctica star </h2>
-  <star></star> 
+  <favorite></favorite> 
   
   `,
 
