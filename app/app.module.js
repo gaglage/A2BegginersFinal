@@ -15,6 +15,7 @@ var app_component_1 = require("./app.component");
 var courses_component_1 = require("./courses.component");
 var authors_component_1 = require("./authors.component");
 var auto_grow_directive_1 = require("./auto-grow.directive");
+var favorite_component_1 = require("./favorite.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,7 +28,8 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             courses_component_1.CoursesComponent,
             authors_component_1.AuthorsComponent,
-            auto_grow_directive_1.AutoGrowDirective
+            auto_grow_directive_1.AutoGrowDirective,
+            favorite_component_1.FavoriteComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     }),

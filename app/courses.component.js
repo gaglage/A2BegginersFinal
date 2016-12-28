@@ -21,7 +21,7 @@ var CoursesComponent = (function () {
 CoursesComponent = __decorate([
     core_1.Component({
         selector: 'courses',
-        template: "<h2>Courses</h2>\n    {{title}}\n    <input type=\"text\" autogrow>\n    <ul>\n    <li *ngFor=\"let course of courses\">\n    {{course}}\n    </li>\n    </ul>\n    ",
+        template: "<h2>Courses</h2>\n    {{title}} <br>\n    Example directive (autogrow)\n    <input type=\"text\" autogrow>\n    <ul>\n    <li *ngFor=\"let course of courses\">\n    {{course}}\n    </li>\n    </ul>\n    ",
         providers: [course_service_1.CourseService]
     }),
     __metadata("design:paramtypes", [course_service_1.CourseService])

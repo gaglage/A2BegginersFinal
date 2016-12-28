@@ -18,7 +18,13 @@ import { Component } from '@angular/core';
 
   Preview: {{title}}
   <courses></courses>
-  <authors></authors>`,
+  <authors></authors>
+
+  
+  <h2>Práctica star </h2>
+  <star></star> 
+  
+  `,
 
 })
 export class AppComponent {

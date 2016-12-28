@@ -9,18 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = "test";
+var FavoriteComponent = (function () {
+    function FavoriteComponent() {
+        this.isFavorite = false;
     }
-    return AppComponent;
+    FavoriteComponent.prototype.ngOnInit = function () { };
+    FavoriteComponent.prototype.changeHighlight = function () {
+        console.log('click');
+        this.isFavorite = !this.isFavorite;
+    };
+    return FavoriteComponent;
 }());
-AppComponent = __decorate([
+FavoriteComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "<h1>Gabi App</h1>\n  <input type=\"text\" \n    [value]=\"title\" \n    (input)=\"title = $event.target.value\">\n\n  <input type=\"text\"  \n    [(ngModel)]=\"title\">\n\n  <input type=\"button\" \n    (click)=\"title = ''\" \n    value=\"Clear\">  \n\n  Preview: {{title}}\n  <courses></courses>\n  <authors></authors>\n\n  \n  <h2>Pr\u00E1ctica star </h2>\n  <star></star> \n  \n  ",
+        selector: 'favorite',
+        template: "\n    <i class=\"fa\" \n        [class.fa-star]=\"isFavorite\" \n        [class.fa-star-o]=\"!isFavorite\" \n        aria-hidden=\"true\" \n        (click)=\"changeHighlight()\">\n    </i>\n    "
     }),
     __metadata("design:paramtypes", [])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], FavoriteComponent);
+exports.FavoriteComponent = FavoriteComponent;
+//# sourceMappingURL=star.component.js.map
