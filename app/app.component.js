@@ -11,13 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.title = "test";
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<h1>Gabi App</h1>\n  <courses></courses>\n  <authors></authors>",
+        template: "<h1>Gabi App</h1>\n  <input type=\"text\" \n    [value]=\"title\" \n    (input)=\"title = $event.target.value\">\n\n  <input type=\"text\"  \n    [(ngModel)]=\"title\">\n\n  <input type=\"button\" \n    (click)=\"title = ''\" \n    value=\"Clear\">  \n\n  Preview: {{title}}\n  <courses></courses>\n  <authors></authors>",
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);
