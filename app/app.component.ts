@@ -22,12 +22,57 @@ import { Component } from '@angular/core';
 
   
   <h2>Práctica star </h2>
-  <favorite></favorite> 
+  <favorite 
+    [isFavorite]="post.isFavorite"
+    (change)="onChangeFavorite($event)"  
+  ></favorite> 
   
+
+    <h2>Práctica likes </h2>
+    <like 
+      [isLiked]="likes.isLiked"
+      [numberLikes]="likes.numLikes"
+       
+    ></like> 
+     <h2>Práctica likes </h2>
+    <voter 
+      [voteCounter] = "votes.counter"
+      [myVote] ="votes.cachedVote"
+      (vote)="onChangeVote($event)"
+       
+    ></voter>   
+    <br>
+    <br>
+    <h2>Práctica Tweet</h2>
+    <tweet></tweet>
+     
   `,
 
 })
 export class AppComponent {
-  title = "test"
+  title = "test";
+
+  votes = {
+    counter: 10,
+    cachedVote: 1
+  }
+
+  likes={
+    numLikes :10,
+    isLiked:false
+
+  }
+
+  post = {
+    title: "title",
+    isFavorite: true
+  }
+
+  onChangeFavorite($event) {
+    console.log($event);
+  }
+  onChangeVote($event) {
+    console.log($event);    
+  }
 
 }

@@ -16,6 +16,9 @@ var courses_component_1 = require("./courses.component");
 var authors_component_1 = require("./authors.component");
 var auto_grow_directive_1 = require("./auto-grow.directive");
 var favorite_component_1 = require("./favorite.component");
+var like_component_1 = require("./like.component");
+var voter_component_1 = require("./voter.component");
+var tweet_component_1 = require("./tweet.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,7 +32,10 @@ AppModule = __decorate([
             courses_component_1.CoursesComponent,
             authors_component_1.AuthorsComponent,
             auto_grow_directive_1.AutoGrowDirective,
-            favorite_component_1.FavoriteComponent
+            favorite_component_1.FavoriteComponent,
+            like_component_1.LikeComponent,
+            voter_component_1.VoterComponent,
+            tweet_component_1.TweetComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     }),

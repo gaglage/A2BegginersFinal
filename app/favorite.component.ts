@@ -1,26 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'favorite',
-    template: `
-    <i class="fa" 
-        [class.fa-star]="isFavorite" 
-        [class.fa-star-o]="!isFavorite" 
-        aria-hidden="true" 
-        (click)="onClick()">
-    </i>
-    `
+    templateUrl: 'app/favorite.template.html',
+    styles:[`
+        .fa-star{color: orange};
+    `]
 })
 export class FavoriteComponent implements OnInit {
 
-    isFavorite = false;
+    @Input() isFavorite = false;
+    @Output() change = new EventEmitter();
+
     constructor() { }
 
     ngOnInit() { }
 
+
     onClick() {
-        console.log('click');
+       
         this.isFavorite = !this.isFavorite;
+        this.change.emit({newValue:this.isFavorite})
     }
 
 }

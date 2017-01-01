@@ -1,4 +1,4 @@
-import { Component, OnInit, Directive, Input } from '@angular/core';
+import { Component, OnInit, Directive } from '@angular/core';
 import { CourseService } from './course.service';
 import { AutoGrowDirective } from './auto-grow.directive';
 

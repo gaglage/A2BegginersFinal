@@ -9,33 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var FavoriteComponent = (function () {
-    function FavoriteComponent() {
-        this.isFavorite = false;
-        this.change = new core_1.EventEmitter();
+var LikeComponent = (function () {
+    function LikeComponent() {
+        this.numberLikes = 0;
+        this.isLiked = false;
     }
-    FavoriteComponent.prototype.ngOnInit = function () { };
-    FavoriteComponent.prototype.onClick = function () {
-        this.isFavorite = !this.isFavorite;
-        this.change.emit({ newValue: this.isFavorite });
+    LikeComponent.prototype.ngOnInit = function () { };
+    LikeComponent.prototype.onClick = function () {
+        this.isLiked = !this.isLiked;
+        this.numberLikes += (this.isLiked) ? 1 : -1;
     };
-    return FavoriteComponent;
+    return LikeComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], FavoriteComponent.prototype, "isFavorite", void 0);
+], LikeComponent.prototype, "numberLikes", void 0);
 __decorate([
-    core_1.Output(),
+    core_1.Input(),
     __metadata("design:type", Object)
-], FavoriteComponent.prototype, "change", void 0);
-FavoriteComponent = __decorate([
+], LikeComponent.prototype, "isLiked", void 0);
+LikeComponent = __decorate([
     core_1.Component({
-        selector: 'favorite',
-        templateUrl: 'app/favorite.template.html',
-        styles: ["\n        .fa-star{color: orange};\n    "]
+        selector: 'like',
+        template: "\n        <i class=\"fa fa-heart\" \n        aria-hidden=\"true\"\n        [class.like]=\"isLiked\"\n        \n        (click)=\"onClick()\"\n        ></i><span>{{numberLikes}}</span>    \n    ",
+        styles: ["\n        .fa-heart{\n            color: #ccc;\n            cursor:pointer;\n        }\n        .like{\n            color:deeppink;\n        }\n    "]
     }),
     __metadata("design:paramtypes", [])
-], FavoriteComponent);
-exports.FavoriteComponent = FavoriteComponent;
-//# sourceMappingURL=favorite.component.js.map
+], LikeComponent);
+exports.LikeComponent = LikeComponent;
+//# sourceMappingURL=like.component.js.map
