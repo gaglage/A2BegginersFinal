@@ -11,6 +11,7 @@ import { FavoriteComponent } from './favorite.component';
 import { LikeComponent } from './like.component';
 import { VoterComponent } from './voter.component';
 import { TweetComponent } from './tweet.component';
+import { SumamryPipe } from './summary.pipe';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TweetComponent } from './tweet.component';
     FavoriteComponent,
     LikeComponent,
     VoterComponent,
-    TweetComponent
+    TweetComponent,
+    SumamryPipe
   ],
   bootstrap: [AppComponent]
 })

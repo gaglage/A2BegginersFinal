@@ -24,6 +24,10 @@ var AppComponent = (function () {
             title: "title",
             isFavorite: true
         };
+        this.pipepost = {
+            title: 'Esto es el titulo para custom pipe',
+            body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum cupiditate vitae officiis quam esse quis quasi! Placeat, at corrupti. Voluptates dolorem, quia suscipit enim beatae laboriosam consequuntur amet maxime perspiciatis.'
+        };
     }
     AppComponent.prototype.onChangeFavorite = function ($event) {
         console.log($event);
@@ -36,7 +40,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<h1>Gabi App</h1>\n  <input type=\"text\" \n    [value]=\"title\" \n    (input)=\"title = $event.target.value\">\n\n  <input type=\"text\"  \n    [(ngModel)]=\"title\">\n\n  <input type=\"button\" \n    (click)=\"title = ''\" \n    value=\"Clear\">  \n\n  Preview: {{title}}\n  <courses></courses>\n  <authors></authors>\n\n  \n  <h2>Pr\u00E1ctica star </h2>\n  <favorite \n    [isFavorite]=\"post.isFavorite\"\n    (change)=\"onChangeFavorite($event)\"  \n  ></favorite> \n  \n\n    <h2>Pr\u00E1ctica likes </h2>\n    <like \n      [isLiked]=\"likes.isLiked\"\n      [numberLikes]=\"likes.numLikes\"\n       \n    ></like> \n     <h2>Pr\u00E1ctica likes </h2>\n    <voter \n      [voteCounter] = \"votes.counter\"\n      [myVote] =\"votes.cachedVote\"\n      (vote)=\"onChangeVote($event)\"\n       \n    ></voter>   \n    <br>\n    <br>\n    <h2>Pr\u00E1ctica Tweet</h2>\n    <tweet></tweet>\n     \n  ",
+        template: "<h1>Gabi App</h1>\n  <input type=\"text\" \n    [value]=\"title\" \n    (input)=\"title = $event.target.value\">\n\n  <input type=\"text\"  \n    [(ngModel)]=\"title\">\n\n  <input type=\"button\" \n    (click)=\"title = ''\" \n    value=\"Clear\">  \n\n  Preview: {{title}}\n  <courses></courses>\n  <authors></authors>\n\n  \n  <h2>Pr\u00E1ctica star </h2>\n  <favorite \n    [isFavorite]=\"post.isFavorite\"\n    (change)=\"onChangeFavorite($event)\"  \n  ></favorite> \n  \n\n    <h2>Pr\u00E1ctica likes </h2>\n    <like \n      [isLiked]=\"likes.isLiked\"\n      [numberLikes]=\"likes.numLikes\"\n       \n    ></like> \n     <h2>Pr\u00E1ctica likes </h2>\n    <voter \n      [voteCounter] = \"votes.counter\"\n      [myVote] =\"votes.cachedVote\"\n      (vote)=\"onChangeVote($event)\"\n       \n    ></voter>   \n    <br>\n    <br>\n    <h2>Pr\u00E1ctica Tweet</h2>\n    <tweet></tweet>\n\n    <h2>Pr\u00E1ctica Custom Pipe</h2>\n    <div>\n    {{pipepost.title}}\n    <br>\n    {{pipepost.body |summary:[10]}}\n    \n    </div>\n     \n  ",
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);

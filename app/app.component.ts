@@ -45,6 +45,14 @@ import { Component } from '@angular/core';
     <br>
     <h2>Práctica Tweet</h2>
     <tweet></tweet>
+
+    <h2>Práctica Custom Pipe</h2>
+    <div>
+    {{pipepost.title}}
+    <br>
+    {{pipepost.body |summary:[10]}}
+    
+    </div>
      
   `,
 
@@ -66,6 +74,11 @@ export class AppComponent {
   post = {
     title: "title",
     isFavorite: true
+  }
+
+  pipepost ={
+    title: 'Esto es el titulo para custom pipe',
+    body:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum cupiditate vitae officiis quam esse quis quasi! Placeat, at corrupti. Voluptates dolorem, quia suscipit enim beatae laboriosam consequuntur amet maxime perspiciatis.'
   }
 
   onChangeFavorite($event) {
