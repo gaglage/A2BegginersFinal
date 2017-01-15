@@ -13,7 +13,6 @@ var SumamryPipe = (function () {
     function SumamryPipe() {
     }
     SumamryPipe.prototype.transform = function (value, args) {
-        console.log(args);
         var limit = (args && args[0]) ? parseInt(args[0]) : 50;
         if (value) {
             return value.substring(0, limit) + '...';

@@ -20,6 +20,7 @@ var like_component_1 = require("./like.component");
 var voter_component_1 = require("./voter.component");
 var tweet_component_1 = require("./tweet.component");
 var summary_pipe_1 = require("./summary.pipe");
+var zippy_component_1 = require("./zippy.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -37,7 +38,8 @@ AppModule = __decorate([
             like_component_1.LikeComponent,
             voter_component_1.VoterComponent,
             tweet_component_1.TweetComponent,
-            summary_pipe_1.SumamryPipe
+            summary_pipe_1.SumamryPipe,
+            zippy_component_1.ZippyComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     }),

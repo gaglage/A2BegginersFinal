@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -12,6 +12,7 @@ import { LikeComponent } from './like.component';
 import { VoterComponent } from './voter.component';
 import { TweetComponent } from './tweet.component';
 import { SumamryPipe } from './summary.pipe';
+import { ZippyComponent } from './zippy.component'
 
 
 @NgModule({
@@ -25,7 +26,9 @@ import { SumamryPipe } from './summary.pipe';
     LikeComponent,
     VoterComponent,
     TweetComponent,
-    SumamryPipe
+    SumamryPipe,
+    ZippyComponent
+
   ],
   bootstrap: [AppComponent]
 })

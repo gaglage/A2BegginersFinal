@@ -53,7 +53,11 @@ import { Component } from '@angular/core';
     {{pipepost.body |summary:[10]}}
     
     </div>
-     
+
+    <h2>Zippy Component</h2>
+     <zippy [title]="'Esto es el titulo 1'" >Contenido opcion 1</zippy>
+      <zippy [title]="'Esto es el titulo 2'" >Contenido opcion 2</zippy>
+
   `,
 
 })
