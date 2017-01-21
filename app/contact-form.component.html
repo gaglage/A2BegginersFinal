@@ -39,5 +39,8 @@
             class="alert alert-danger" 
             role="alert" (change)="log(e)">Comment is required</div>            
     </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button 
+        class="btn btn-primary" 
+        type="submit"
+        [disabled]="!f.valid">Submit</button>
 </form>
