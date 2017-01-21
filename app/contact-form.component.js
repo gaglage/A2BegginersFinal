@@ -16,6 +16,9 @@ var ContactFormComponent = (function () {
     ContactFormComponent.prototype.log = function (x) {
         console.log(x);
     };
+    ContactFormComponent.prototype.onSubmit = function (f) {
+        console.log(f);
+    };
     return ContactFormComponent;
 }());
 ContactFormComponent = __decorate([
