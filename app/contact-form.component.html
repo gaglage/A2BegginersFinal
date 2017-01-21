@@ -9,12 +9,20 @@
             type="text" 
             class="form-control" 
             type="text" 
-            required>
-        <div 
-            *ngIf="firstName.touched && !firstName.valid"
-            class="alert alert-danger" 
-            role="alert">Firstname is required</div>
+            required
+            minlength="4">
+        <div *ngIf="firstName.touched && firstName.errors">
+            <div 
+                *ngIf="firstName.errors.required"
+                class="alert alert-danger" 
+                role="alert">Firstname is required</div>
+            <div
+                *ngIf="firstName.errors.minlength"
+                class="alert alert-danger" 
+            >Firstname should be at least {{firstName.errors.minlength.requiredLength}} characters</div>
+        </div>
     </div>
+   
     <div class="form-group">
         <label for="comment">Comment</label>
         <textarea 
