@@ -9,25 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var forms_1 = require("@angular/forms");
-var app_component_1 = require("./app.component");
-var contact_form_component_1 = require("./contact-form.component");
-var AppModule = (function () {
-    function AppModule() {
+var ContactFormComponent = (function () {
+    function ContactFormComponent() {
     }
-    return AppModule;
+    ContactFormComponent.prototype.ngOnInit = function () { };
+    ContactFormComponent.prototype.log = function (x) {
+        console.log(x);
+    };
+    return ContactFormComponent;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-        declarations: [
-            app_component_1.AppComponent,
-            contact_form_component_1.ContactFormComponent
-        ],
-        bootstrap: [app_component_1.AppComponent]
+ContactFormComponent = __decorate([
+    core_1.Component({
+        selector: 'contact-form',
+        templateUrl: 'app/contact-form.component.html',
+        styles: ["\n        form{\n            padding:20px;\n        }\n    "]
     }),
     __metadata("design:paramtypes", [])
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], ContactFormComponent);
+exports.ContactFormComponent = ContactFormComponent;
+//# sourceMappingURL=contact-form.component.js.map
