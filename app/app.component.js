@@ -19,7 +19,7 @@ AppComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'my-app',
-        template: "\n    <contact-form></contact-form>\n  "
+        template: "\n    <user-form></user-form>\n  "
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);

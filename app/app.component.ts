@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   moduleId: module.id,
   selector: 'my-app',
   template: `
-    <contact-form></contact-form>
+    <user-form></user-form>
   `
 })
 export class AppComponent implements OnInit {
