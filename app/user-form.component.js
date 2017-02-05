@@ -10,16 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
+var usernameValidator_1 = require("./usernameValidator");
 var UserFormComponent = (function () {
     function UserFormComponent(fb) {
-        this.userForm = fb.group({
-            username: new forms_1.FormControl('', forms_1.Validators.required),
-            password: new forms_1.FormControl('', forms_1.Validators.required)
-        });
+        this.fb = fb;
     }
-    UserFormComponent.prototype.ngOnInit = function () { };
+    UserFormComponent.prototype.ngOnInit = function () {
+        this.userForm = this.fb.group({
+            username: ['', forms_1.Validators.compose([
+                    forms_1.Validators.required,
+                    usernameValidator_1.UsernameValidators.cannotContainSpace
+                ])],
+            password: ['', forms_1.Validators.required]
+        });
+    };
     UserFormComponent.prototype.onSubmit = function (f) {
-        console.log(this.userForm.controls.username.invalid);
         console.log(f);
     };
     return UserFormComponent;

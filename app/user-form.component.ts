@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import {FormControl, FormBuilder,FormGroup, Validators} from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { UsernameValidators } from './usernameValidator';
 
 @Component({
     selector: 'user-form',
@@ -12,19 +14,21 @@ import {FormControl, FormBuilder,FormGroup, Validators} from '@angular/forms';
     `]
 })
 export class UserFormComponent implements OnInit {
-    userForm:FormGroup;
-    constructor(fb: FormBuilder) { 
-        this.userForm = fb.group({
-            username: new FormControl('',Validators.required),
-            password: new FormControl('',Validators.required)
+    userForm: FormGroup;
+    constructor(private fb: FormBuilder) { }
+
+    ngOnInit() {
+        this.userForm = this.fb.group({
+            username: ['', Validators.compose([
+                Validators.required,
+                UsernameValidators.cannotContainSpace
+            ])],
+            password: ['', Validators.required]
         })
     }
 
-    ngOnInit() { }
-
 
     onSubmit(f) {
-        console.log(this.userForm.controls.username.invalid);
         console.log(f);
     }
 }
