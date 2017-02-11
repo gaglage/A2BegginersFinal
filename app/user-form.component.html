@@ -7,7 +7,8 @@
             class="form-control"            
              >
              {{userForm.controls.username.errors | json}}
-             <div *ngIf="userForm.controls.username.touched && userForm.invalid">
+             
+             <div *ngIf="userForm.controls.username.touched && userForm.controls.username.invalid">
                 <div
                     *ngIf="userForm.controls.username.errors.required" 
                     class="alert alert-danger">username is required</div>
@@ -15,6 +16,10 @@
                 <div
                     *ngIf="userForm.controls.username.errors.cannotContainSpace" 
                     class="alert alert-danger">white spaces are not allowed</div>
+
+                <div
+                    *ngIf="userForm.controls.username.errors.shouldBeUnique" 
+                    class="alert alert-danger">username is taken</div>
              </div>
 
 

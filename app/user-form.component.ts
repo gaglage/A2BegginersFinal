@@ -18,17 +18,18 @@ export class UserFormComponent implements OnInit {
     constructor(private fb: FormBuilder) { }
 
     ngOnInit() {
+        
         this.userForm = this.fb.group({
             username: ['', Validators.compose([
                 Validators.required,
                 UsernameValidators.cannotContainSpace
-            ])],
+            ]), UsernameValidators.shouldBeUnique],
             password: ['', Validators.required]
         })
     }
 
 
-    onSubmit(f) {
-        console.log(f);
+    onSubmit(f:FormGroup) {
+        console.log(f.controls);
     }
 }

@@ -20,12 +20,12 @@ var UserFormComponent = (function () {
             username: ['', forms_1.Validators.compose([
                     forms_1.Validators.required,
                     usernameValidator_1.UsernameValidators.cannotContainSpace
-                ])],
+                ]), usernameValidator_1.UsernameValidators.shouldBeUnique],
             password: ['', forms_1.Validators.required]
         });
     };
     UserFormComponent.prototype.onSubmit = function (f) {
-        console.log(f);
+        console.log(f.controls);
     };
     return UserFormComponent;
 }());
