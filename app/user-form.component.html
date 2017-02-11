@@ -6,6 +6,9 @@
             formControlName ="username"
             class="form-control" >  
              
+                <div
+                    *ngIf="userForm.controls.username.pending" 
+                    class="">chequink for uniqueness</div>
              <div *ngIf="userForm.controls.username.touched && userForm.controls.username.invalid">
                 <div
                     *ngIf="userForm.controls.username.errors.required" 
