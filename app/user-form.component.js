@@ -25,7 +25,7 @@ var UserFormComponent = (function () {
         });
     };
     UserFormComponent.prototype.onSubmit = function (f) {
-        console.log(f.controls);
+        console.log(f);
     };
     return UserFormComponent;
 }());

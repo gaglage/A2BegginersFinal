@@ -4,9 +4,7 @@
         <label for="username">User Name</label>
         <input 
             formControlName ="username"
-            class="form-control"            
-             >
-             {{userForm.controls.username.errors | json}}
+            class="form-control" >  
              
              <div *ngIf="userForm.controls.username.touched && userForm.controls.username.invalid">
                 <div
@@ -30,6 +28,12 @@
             formControlName ="password"        
 
             class="form-control">
+                         <div *ngIf="userForm.controls.password.touched && userForm.controls.password.invalid">
+                <div
+                    *ngIf="userForm.controls.password.errors.required" 
+                    class="alert alert-danger">password is required</div>
+
+             </div>
     </div>
 
     <button 

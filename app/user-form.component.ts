@@ -30,6 +30,6 @@ export class UserFormComponent implements OnInit {
 
 
     onSubmit(f:FormGroup) {
-        console.log(f.controls);
+        console.log(f);
     }
 }
