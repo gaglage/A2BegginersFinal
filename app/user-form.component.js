@@ -25,7 +25,12 @@ var UserFormComponent = (function () {
         });
     };
     UserFormComponent.prototype.onSubmit = function (f) {
-        console.log(f);
+        //validation simulated
+        // var result = authService.login(this.userForm.value)
+        this.userForm.setErrors({
+            invalidLogin: true
+        });
+        console.log(this.userForm.errors);
     };
     return UserFormComponent;
 }());

@@ -6,7 +6,7 @@
             formControlName ="username"
             class="form-control" >  
              
-                <div
+            <div
                     *ngIf="userForm.controls.username.pending" 
                     class="">chequing for uniqueness</div>
              <div *ngIf="userForm.controls.username.touched && userForm.controls.username.invalid">
@@ -38,7 +38,9 @@
 
              </div>
     </div>
-
+                <div
+                    *ngIf="userForm.errors && userForm.errors.invalidLogin" 
+                    class="alert alert-danger">username or password is invalid</div>
     <button 
         [disabled]="userForm.invalid"
         class="btn btn-primary" >Submit</button>
