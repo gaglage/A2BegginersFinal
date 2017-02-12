@@ -9,7 +9,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
-var user_form_component_1 = require("./user-form.component");
+var password_form_component_1 = require("./password-form.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,7 +20,7 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
         declarations: [
             app_component_1.AppComponent,
-            user_form_component_1.UserFormComponent
+            password_form_component_1.PasswordFormComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })

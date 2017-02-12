@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   moduleId: module.id,
   selector: 'my-app',
   template: `
-    <user-form></user-form>
+    <password-form></password-form>
   `
 })
 export class AppComponent implements OnInit {
