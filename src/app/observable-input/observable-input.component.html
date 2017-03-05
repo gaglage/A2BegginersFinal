@@ -1,5 +1,5 @@
-
-
-<md-input-container class="example-full-width">
-      <input mdInput placeholder="Example">
-    </md-input-container>
+<form [formGroup]="form" >
+  <md-input-container class="example-full-width">
+    <input mdInput placeholder="Example"  formControlName="search">
+  </md-input-container>
+</form>
