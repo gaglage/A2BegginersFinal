@@ -6,6 +6,7 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/observable/from';
 
 @Component({
   selector: 'app-observable-input',
@@ -14,25 +15,31 @@ import 'rxjs/add/operator/mergeMap';
 })
 export class ObservableInputComponent implements OnInit {
   form: FormGroup;
-
   constructor(private fb: FormBuilder, private http: Http) {
     this.form = this.fb.group({
       search: []
     });
-    let search = this.form.get('search');
 
-    search.valueChanges
-      .debounceTime(400)// debounceTime
-      .filter(text => text.length >= 3)
-      .mergeMap (searchTerm => {
-        let url = `https://api.spotify.com/v1/search?type=artist&q=${searchTerm}`;
-        return http.get(url)
-          .toPromise()
-          .then(response => response.json());
+    // .unsubscribe();
 
+    let startDates = [];
+    let startDate = new Date();
+    for (let day = -2; day <= 2; day++) {
+      let date = new Date(
+        startDate.getFullYear(),
+        startDate.getMonth(),
+        startDate.getDate() + day
+      )
+      startDates.push(date);
+    }
+
+    Observable
+      .from(startDates)
+      .map(date => {
+        console.log(`Getting deals for date ${date}`);
+        return [1, 2, 3]
       })
-      .subscribe(artist => console.log(artist))
-      // .unsubscribe();
+      .subscribe(x => console.log(x));
 
   }
 
