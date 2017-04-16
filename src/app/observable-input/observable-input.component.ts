@@ -33,7 +33,6 @@ export class ObservableInputComponent implements OnInit {
       })
       .subscribe(artist => console.log(artist))
       // .unsubscribe();
-console.log(new Observable());
 
   }
 
