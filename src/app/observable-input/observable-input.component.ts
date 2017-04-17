@@ -6,7 +6,9 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/observable/range';
 import 'rxjs/add/observable/from';
+import 'rxjs/add/observable/interval';
 
 @Component({
   selector: 'app-observable-input',
@@ -22,24 +24,15 @@ export class ObservableInputComponent implements OnInit {
 
     // .unsubscribe();
 
-    let startDates = [];
-    let startDate = new Date();
-    for (let day = -2; day <= 2; day++) {
-      let date = new Date(
-        startDate.getFullYear(),
-        startDate.getMonth(),
-        startDate.getDate() + day
-      )
-      startDates.push(date);
-    }
+
 
     Observable
-      .from(startDates)
-      .map(date => {
-        console.log(`Getting deals for date ${date}`);
-        return [1, 2, 3]
+      .interval(1000)
+      .flatMap(x => {
+        console.log('Calling server');
+        return Observable.of([1, 2, 3]);
       })
-      .subscribe(x => console.log(x));
+      .subscribe(news => console.log(news));
 
   }
 
