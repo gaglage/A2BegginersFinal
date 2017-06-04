@@ -30,9 +30,9 @@ export class ObservableInputComponent implements OnInit {
     let userStream = Observable.of({
       userId: 1, username: 'gabi'
     }).delay(2000);
-    let tweetStream = Observable.of([1, 2, 3]).delay(1550);
+    let tweetStream = Observable.of([1, 2, 3]).delay(20000);
 
-    Observable.forkJoin(userStream, twexetStream)
+    Observable.forkJoin(userStream, tweetStream)
       .subscribe(result => console.log(result));
 
     Observable.forkJoin(userStream, tweetStream)
