@@ -48,21 +48,30 @@ export class ObservableInputComponent implements OnInit {
           error => console.log(error)
 
         );*/
-    let counter = 0;
-    let ajaxCall = Observable.of('[1,2,3]')
-      .flatMap(() => {
-        // tslint:disable-next-line:curly
-        if (++counter < 2)
-          return Observable.throw(new Error('Something was wrong'));
+    /*    let counter = 0;
+        let ajaxCall = Observable.of('[1,2,3]')
+          .flatMap(() => {
+            // tslint:disable-next-line:curly
+            if (++counter < 2)
+              return Observable.throw(new Error('Something was wrong'));
 
-        return Observable.of('[1,2,3]');
-      });
-    ajaxCall
-    .retry(2)
-    .subscribe(
-      x => console.log(x),
-      error => console.log(error)
+            return Observable.of('[1,2,3]');
+          });
+        ajaxCall
+        .retry(2)
+        .subscribe(
+          x => console.log(x),
+          error => console.log(error)
+        );*/
+
+    let remoteDataStream = Observable.throw(new Error('Something was wrong'));
+    remoteDataStream.catch(
+      err => {
+        let localDataStream = Observable.of([1, 2, 3]);
+        return localDataStream;
+      }
     )
+    .subscribe(x => console.log(x));
 
   }
 
