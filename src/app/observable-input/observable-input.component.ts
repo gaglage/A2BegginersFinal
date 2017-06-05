@@ -73,14 +73,21 @@ export class ObservableInputComponent implements OnInit {
           }
         )
         .subscribe(x => console.log(x));*/
-    let remoteDataStream = Observable.of([1, 2, 3]).delay(5000);
-    remoteDataStream
-      .timeout(1000)
-      // .timeout(6000)
-      .subscribe(
-      x => console.log(x), error => console.error(error)
+    /*    let remoteDataStream = Observable.of([1, 2, 3]).delay(5000);
+        remoteDataStream
+          .timeout(1000)
+          // .timeout(6000)
+          .subscribe(
+          x => console.log(x), error => console.error(error)
 
-      )
+          );*/
+    let remoteDataStream = Observable.of([1, 2, 3]);
+    // let remoteDataStream = Observable.throw(new Error('Error'));
+    remoteDataStream.subscribe(
+      x => console.log(x),
+      error => console.log(error),
+      () => console.log('Completed')
+    )
 
   }
 
