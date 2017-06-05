@@ -8,6 +8,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/retry';
+import 'rxjs/add/operator/timeout';
 
 import 'rxjs/add/observable/range';
 import 'rxjs/add/observable/from';
@@ -64,14 +65,22 @@ export class ObservableInputComponent implements OnInit {
           error => console.log(error)
         );*/
 
-    let remoteDataStream = Observable.throw(new Error('Something was wrong'));
-    remoteDataStream.catch(
-      err => {
-        let localDataStream = Observable.of([1, 2, 3]);
-        return localDataStream;
-      }
-    )
-    .subscribe(x => console.log(x));
+    /*    let remoteDataStream = Observable.throw(new Error('Something was wrong'));
+        remoteDataStream.catch(
+          err => {
+            let localDataStream = Observable.of([1, 2, 3]);
+            return localDataStream;
+          }
+        )
+        .subscribe(x => console.log(x));*/
+    let remoteDataStream = Observable.of([1, 2, 3]).delay(5000);
+    remoteDataStream
+      .timeout(1000)
+      // .timeout(6000)
+      .subscribe(
+      x => console.log(x), error => console.error(error)
+
+      )
 
   }
 
