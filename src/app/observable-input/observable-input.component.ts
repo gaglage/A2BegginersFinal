@@ -39,7 +39,7 @@ export class ObservableInputComponent implements OnInit {
       .map(joined => new Object({ user: joined[0], tweets: joined[1] }))
       .subscribe(result => console.log(result));
 
-    //error
+    // error
 
     let observable = Observable.throw(new Error('Something was wrong'));
     observable.subscribe(
