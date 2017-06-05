@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/retry';
 
 import 'rxjs/add/observable/range';
 import 'rxjs/add/observable/from';
@@ -27,34 +28,41 @@ export class ObservableInputComponent implements OnInit {
 
     // .unsubscribe();
 
-    let userStream = Observable.of({
-      userId: 1, username: 'gabi'
-    }).delay(2000);
-    let tweetStream = Observable.of([1, 2, 3]).delay(20000);
+    /*    let userStream = Observable.of({
+          userId: 1, username: 'gabi'
+        }).delay(2000);
+        let tweetStream = Observable.of([1, 2, 3]).delay(20000);
 
-    Observable.forkJoin(userStream, tweetStream)
-      .subscribe(result => console.log(result));
+        Observable.forkJoin(userStream, tweetStream)
+          .subscribe(result => console.log(result));
 
-    Observable.forkJoin(userStream, tweetStream)
-      .map(joined => new Object({ user: joined[0], tweets: joined[1] }))
-      .subscribe(result => console.log(result));
+        Observable.forkJoin(userStream, tweetStream)
+          .map(joined => new Object({ user: joined[0], tweets: joined[1] }))
+          .subscribe(result => console.log(result));*/
 
     // error
 
-    let observable = Observable.throw(new Error('Something was wrong'));
-    observable.subscribe(
+    /*    let observable = Observable.throw(new Error('Something was wrong'));
+        observable.subscribe(
+          x => console.log(x),
+          error => console.log(error)
+
+        );*/
+    let counter = 0;
+    let ajaxCall = Observable.of('[1,2,3]')
+      .flatMap(() => {
+        // tslint:disable-next-line:curly
+        if (++counter < 2)
+          return Observable.throw(new Error('Something was wrong'));
+
+        return Observable.of('[1,2,3]');
+      });
+    ajaxCall
+    .retry(2)
+    .subscribe(
       x => console.log(x),
       error => console.log(error)
-
-    );
-
-    // Observable
-    //   .interval(1000)
-    //   .flatMap(x => {
-    //     console.log('Calling server');
-    //     return Observable.of([1, 2, 3]);
-    //   })
-    //   .subscribe(news => console.log(news));
+    )
 
   }
 
