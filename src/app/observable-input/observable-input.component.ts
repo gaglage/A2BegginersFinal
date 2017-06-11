@@ -9,6 +9,8 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/retry';
 import 'rxjs/add/operator/timeout';
+import 'rxjs/add/operator/take';
+
 
 import 'rxjs/add/observable/range';
 import 'rxjs/add/observable/from';
@@ -81,9 +83,10 @@ export class ObservableInputComponent implements OnInit {
           x => console.log(x), error => console.error(error)
 
           );*/
-    let remoteDataStream = Observable.of([1, 2, 3]);
+    let remoteDataStream = Observable.of ([1, 2, 3,4,5]);
     // let remoteDataStream = Observable.throw(new Error('Error'));
-    remoteDataStream.subscribe(
+    remoteDataStream
+    .take(3).subscribe(
       x => console.log(x),
       error => console.log(error),
       () => console.log('Completed')
