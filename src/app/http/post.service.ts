@@ -18,7 +18,7 @@ export class PostService {
     // let headers = new Headers({ 'Content-Type': 'application/json' });
     // let options = new RequestOptions({ headers: headers });
 
-    return this._http.post(this.url, JSON.stringify(post))
+    return this._http.post(this.url, JSON.stringify(post));
 
   }
 
