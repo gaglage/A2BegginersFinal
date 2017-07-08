@@ -7,12 +7,18 @@ import { PostService } from './post.service';
   styleUrls: ['./http-lesson.component.css']
 })
 export class HttpLessonComponent implements OnInit {
+  isLoading = true;
+
   constructor(private _postService: PostService) {
 
   }
 
   ngOnInit() {
     this._postService.getPost()
-      .subscribe(post => { console.log(post); });
+      .delay(5000)
+      .subscribe(post => {
+        this.isLoading = false;
+        console.log(post);
+      });
   }
 }
