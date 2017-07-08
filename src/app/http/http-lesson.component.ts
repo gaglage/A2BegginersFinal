@@ -8,9 +8,11 @@ import { PostService } from './post.service';
 })
 export class HttpLessonComponent implements OnInit {
   constructor(private _postService: PostService) {
+
+  }
+
+  ngOnInit() {
     this._postService.getPost()
       .subscribe(post => { console.log(post); });
   }
-
-  ngOnInit() { }
 }

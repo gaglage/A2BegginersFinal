@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Post } from './post';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PostService {
   url = 'https://jsonplaceholder.typicode.com/posts';
-  constructor(private _http: Http) { }
-  getPost() {
+  constructor(private _http: Http) {
+
+  }
+  getPost(): Observable<Post[]> {
     return this._http.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
 
   }
-  createPost(post) {
+  createPost(post: Post) {
     // let headers = new Headers({ 'Content-Type': 'application/json' });
     // let options = new RequestOptions({ headers: headers });
 
