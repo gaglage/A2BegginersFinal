@@ -7,11 +7,14 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { ObservableInputComponent } from './observable-input/observable-input.component';
+import { PostService } from './http/post.service';
+import { HttpLessonComponent } from './http/http-lesson.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ObservableInputComponent
+    ObservableInputComponent,
+    HttpLessonComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { ObservableInputComponent } from './observable-input/observable-input.co
     HttpModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
