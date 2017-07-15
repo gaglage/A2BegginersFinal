@@ -40,12 +40,8 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "prefixInterfaces": false,
-    "inline": {
-      "style": false,
-      "template": false
-    },
+    "styleExt": "scss",
+
     "spec": {
       "class": false,
       "component": true,

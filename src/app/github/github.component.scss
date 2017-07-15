@@ -1,0 +1,15 @@
+:host {
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+  }
+  .github-card{width:300px;}
+  .github-header-image{
+    width: 25px;
+    height: 25px;
+    overflow:hidden;
+    border-radius: 100%;
+    float:left;
+  }
+}

@@ -1,1 +1,29 @@
 <h1>Exercice GitHub</h1>
+<div *ngIf="!isLoaded"><md-progress-bar mode="query"></md-progress-bar></div>
+
+
+<div *ngIf="githubuser">
+<img src="{{githubuser.avatar_url}}" class="avatar">
+</div>
+<div  *ngFor="let follower of githubfollowers">
+
+
+<md-card class="github-card">
+  <md-card-header>
+    <div class="github-header-image"><img src="{{follower.avatar_url}}" alt="" md-card-image></div>
+
+    <md-card-title>@{{follower.login}}</md-card-title>
+    <md-card-subtitle>{{follower.type}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="{{follower.avatar_url}}">
+  <md-card-content>
+    <p>
+      description
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="gotoProfile(follower.login)">Go to</button>
+
+  </md-card-actions>
+</md-card>
+</div>
